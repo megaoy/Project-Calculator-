@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+}
+.calculator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.result{
+    background-color: rgb(165, 165, 165);
+    border: 2px solid black;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    
+}
+._btn_line{
+    display: flex;
+}

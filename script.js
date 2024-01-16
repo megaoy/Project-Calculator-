@@ -17,11 +17,38 @@ function divide(number1,number2)
 {
     return number1 / number2;
 }
+function operate(number1,number2,operator)
+{
+    switch(operator)
+    {
+        case "+":
+            return add(number1,number2);
+            break;
+        case "-":
+            return subtract(number1,number2);
+            break;
+        case "*":
+            return multiply(number1,number2);
+            break;
+        case "/":
+            return divide(number1,number2);
+            break;
+        default:
+            return "wrong option";
+            break;
+    }
+}
 
-console.log("function add test: " + add(2,2));
+let number1;
+let number2;
+let operator;
 
-console.log("function subtract test: " + subtract(2,2));
+console.log("function add test: " + operate(1,1,'+'));
 
-console.log("function multiply test: " + multiply(2,3));
+console.log("function subtract test: " + operate(1,1,'-'));
 
-console.log("function divide test: " + divide(4,2));
+console.log("function multiply test: " + operate(1,1,'*'));
+
+console.log("function divide test: " + operate(1,1,'/'));
+
+console.log("function divide test: " + operate(1,1,'9'));
