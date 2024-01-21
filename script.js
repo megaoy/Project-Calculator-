@@ -39,16 +39,23 @@ function operate(number1,number2,operator)
     }
 }
 
+function updateDisplay(display,value)
+{
+    display.value = display.value + value;
+    console.log(value);
+}
 let number1;
 let number2;
 let operator;
 
-console.log("function add test: " + operate(1,1,'+'));
+let display = document.querySelector("#display");
 
-console.log("function subtract test: " + operate(1,1,'-'));
+let numbers = document.querySelectorAll('button.number');
 
-console.log("function multiply test: " + operate(1,1,'*'));
-
-console.log("function divide test: " + operate(1,1,'/'));
-
-console.log("function divide test: " + operate(1,1,'9'));
+for (let i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener("click", (event) => {
+        updateDisplay(display,numbers[i].textContent);
+    });
+    
+    
+}
