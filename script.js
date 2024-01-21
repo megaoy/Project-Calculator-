@@ -1,61 +1,94 @@
 function add(number1,number2)
 {
-    return number1 + number2;
+    display.value = number1 + number2;
 }
 
 function subtract(number1,number2)
 {
-    return number1 - number2;
+    display.value = number1 - number2;
 }
 
 function multiply(number1,number2)
 {
-    return number1 * number2;
+    display.value = number1 * number2;
 }
 
 function divide(number1,number2)
 {
-    return number1 / number2;
+    display.value = number1 / number2;
 }
-function operate(number1,number2,operator)
+
+function clear(){
+    number1 = "";
+    number2 = "";
+    operator = "";
+    display.value = "";
+}
+function operate()
 {
+    
+    number2 = parseFloat(display.value)
+    
+    
+
     switch(operator)
     {
-        case "+":
-            return add(number1,number2);
+        case '+':
+            add(number1,number2);
             break;
         case "-":
-            return subtract(number1,number2);
+            subtract(number1,number2);
             break;
-        case "*":
-            return multiply(number1,number2);
+        case "X":
+            multiply(number1,number2);
             break;
         case "/":
-            return divide(number1,number2);
+            divide(number1,number2);
+            break;
+        case 'C':
+            clear()
             break;
         default:
-            return "wrong option";
+            // return "wrong option";
             break;
     }
 }
 
-function updateDisplay(display,value)
+function updateDisplay(value)
 {
     display.value = display.value + value;
-    console.log(value);
+    
 }
-let number1;
-let number2;
-let operator;
+
+function setOperation(operation){
+    
+    number1  = parseFloat(display.value);
+    display.value = "";
+    operator = operation;
+}
+let number1 = 0;
+let number2 = 0;
+let operator = "";
 
 let display = document.querySelector("#display");
-
+let operations = document.querySelectorAll('button.operator');
 let numbers = document.querySelectorAll('button.number');
+
+let equal_action = document.querySelector('#equal_action')
+equal_action.addEventListener("click", (event) => {
+    operate();
+});
 
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", (event) => {
-        updateDisplay(display,numbers[i].textContent);
+        updateDisplay(numbers[i].textContent);
     });
     
+}
+
+for (let i = 0; i < operations.length; i++) {
+    operations[i].addEventListener("click", (event) => {
+        setOperation(operations[i].textContent);
+    });
     
 }
